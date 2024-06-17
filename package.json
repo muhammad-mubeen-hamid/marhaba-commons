@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "git@github.com:muhammad-mubeen-hamid/marhaba-commons.git",
+  "publishConfig": {
+    "@muhammad-mubeen-hamid:registry": "https://npm.pkg.github.com"
+  },
   "author": "Muhammad Mubeen Hamid <muhammadmubeenhamid@gmail.com>",
   "license": "MIT"
 }
