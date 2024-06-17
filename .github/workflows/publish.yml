@@ -15,7 +15,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 20
-      - run: npm ci
+      - run: yarn install --frozen-lockfile
 
   publish-gpr:
     needs: build
@@ -28,7 +28,7 @@ jobs:
           registry-url: https://npm.pkg.github.com/
           scope: "@muhammad-mubeen-hamid"
 
-      - run: yarn install
+      - run: yarn install --frozen-lockfile
       - run: git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com" && git config --global user.name "$GITHUB_ACTOR"
       - run: yarn version --minor
       - run: git push --tags && git push
