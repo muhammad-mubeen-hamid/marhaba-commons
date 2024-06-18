@@ -15,7 +15,6 @@ jobs:
           node-version: 16
       - run: npm ci
 
-
   publish-gpr:
     needs: build
     runs-on: ubuntu-latest
@@ -34,5 +33,5 @@ jobs:
           echo "@muhammad-mubeen-hamid:registry=https://npm.pkg.github.com" >> .npmrc
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.MARHABA_GITHUB_TOKEN }}" >> .npmrc
       - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.MARHABA_GITHUB_TOKEN}}
+    env:
+      NODE_AUTH_TOKEN: ${{secrets.MARHABA_GITHUB_TOKEN}}
