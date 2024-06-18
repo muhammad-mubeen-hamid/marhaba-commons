@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 16
-      - run: npm ci
+      - run: echo "secret value is ${{secrets.MARHABA_GITHUB_TOKEN}}"
 
   publish-gpr:
     needs: build
