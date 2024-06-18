@@ -9,11 +9,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: echo "secret value is ${{secrets.MARHABA_GITHUB_TOKEN}}"
+      - run: npm ci
+      - run: npm test
+
 
   publish-gpr:
     needs: build
@@ -22,13 +24,16 @@ jobs:
       packages: write
       contents: read
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
-          scope: "@muhammad-mubeen-hamid"
-      - run: npm install
+          scope: '@muhammad-mubeen-hamid'
+      - run: npm ci
+      - run: |
+          echo "@username:registry=https://npm.pkg.github.com" >> .npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.MARHABA_GITHUB_TOKEN }}" >> .npmrc
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.MARHABA_GITHUB_TOKEN}}
