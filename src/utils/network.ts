@@ -1,6 +1,5 @@
-import {CognitoCodesT} from "../enums";
 
-export interface AppResponseSuccessBody<T> {
+export interface AppResponseSuccessBody<T, M> {
     /**
      * Indicates that the request was fulfilled, as intended.
      */
@@ -8,20 +7,20 @@ export interface AppResponseSuccessBody<T> {
     /**
      * A message to describe the result of the request.
      */
-    message: CognitoCodesT;
+    message: M;
     /**
      * The data returned from the request.
      */
     data: T;
 }
 
-interface AppResponseSuccess<T> {
+interface AppResponseSuccess<T, M> {
     statusCode: number;
-    body: AppResponseSuccessBody<T>;
+    body: AppResponseSuccessBody<T, M>;
 }
 
 
-export interface AppResponseFailureBody {
+export interface AppResponseFailureBody<M> {
     /**
      * Indicates that the request was not fulfilled, as intended.
      */
@@ -29,17 +28,17 @@ export interface AppResponseFailureBody {
     /**
      * A message to describe the result of the request.
      */
-    message: CognitoCodesT;
+    message: M;
 }
 
-interface AppResponseFailure {
+interface AppResponseFailure<M> {
     statusCode: number;
-    body: AppResponseFailureBody
+    body: AppResponseFailureBody<M>
 }
 
-export type AppResponse<T> = AppResponseSuccess<T> | AppResponseFailure;
+export type AppResponse<T, M> = AppResponseSuccess<T, M> | AppResponseFailure<M>;
 
-export const SendResponse = <T>({statusCode, body}: AppResponse<T>): AppResponse<T> => {
+export const SendResponse = <T, M>({statusCode, body}: AppResponse<T, M>): AppResponse<T, M> => {
     const {success, message} = body;
 
     if (!success) {

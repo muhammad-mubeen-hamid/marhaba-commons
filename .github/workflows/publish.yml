@@ -13,9 +13,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 20
-      - run: yarn install # Use yarn instead of npm
+      - run: yarn install
 
-      - run: yarn build # Add this step to compile TypeScript to JavaScript
+      - run: yarn build
 
   publish-gpr:
     needs: build
@@ -30,10 +30,10 @@ jobs:
           node-version: 20
           registry-url: https://npm.pkg.github.com/
           scope: '@muhammad-mubeen-hamid'
-      - run: yarn install # Use yarn instead of npm
+      - run: yarn install
       - run: |
           echo "@muhammad-mubeen-hamid:registry=https://npm.pkg.github.com" >> .npmrc
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.MARHABA_GITHUB_TOKEN }}" >> .npmrc
-      - run: yarn publish # Use yarn instead of npm publish
+      - run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.MARHABA_GITHUB_TOKEN}}
