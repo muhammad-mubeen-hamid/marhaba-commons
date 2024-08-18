@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "module": "commonjs", // or "esnext"
+    "target": "es5", // or "esnext" depending on your environment
+    "moduleResolution": "node",
+    "declaration": true,
+    "outDir": "./dist",
+    "strict": true,
+    "esModuleInterop": true, // Ensures compatibility with CommonJS and ES Modules
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*"]
+}
