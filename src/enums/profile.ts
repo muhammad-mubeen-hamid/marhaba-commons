@@ -1,13 +1,9 @@
-
-type ProfileCodeEntry = {
-    code: string;
-    content: string;
-};
+import {AppResponseMessage} from "./index";
 
 interface ProfileCode {
-    ALL_OKAY: ProfileCodeEntry;
-    PROFILE_UPDATED: ProfileCodeEntry;
-    INTERNAL_SERVER_ERROR: ProfileCodeEntry;
+    ALL_OKAY: AppResponseMessage;
+    PROFILE_UPDATED: AppResponseMessage;
+    INTERNAL_SERVER_ERROR: AppResponseMessage;
 }
 
 export const ProfileCodes: ProfileCode = {

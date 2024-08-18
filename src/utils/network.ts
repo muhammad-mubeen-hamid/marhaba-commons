@@ -1,5 +1,6 @@
+import {AppResponseMessage} from "../enums";
 
-export interface AppResponseSuccessBody<T, M> {
+export interface AppResponseSuccessBody<T> {
     /**
      * Indicates that the request was fulfilled, as intended.
      */
@@ -7,20 +8,20 @@ export interface AppResponseSuccessBody<T, M> {
     /**
      * A message to describe the result of the request.
      */
-    message: M;
+    message: AppResponseMessage;
     /**
      * The data returned from the request.
      */
     data: T;
 }
 
-interface AppResponseSuccess<T, M> {
+interface AppResponseSuccess<T> {
     statusCode: number;
-    body: AppResponseSuccessBody<T, M>;
+    body: AppResponseSuccessBody<T>;
 }
 
 
-export interface AppResponseFailureBody<M> {
+export interface AppResponseFailureBody {
     /**
      * Indicates that the request was not fulfilled, as intended.
      */
@@ -28,17 +29,17 @@ export interface AppResponseFailureBody<M> {
     /**
      * A message to describe the result of the request.
      */
-    message: M;
+    message: AppResponseMessage;
 }
 
-interface AppResponseFailure<M> {
+interface AppResponseFailure {
     statusCode: number;
-    body: AppResponseFailureBody<M>
+    body: AppResponseFailureBody
 }
 
-export type AppResponse<T, M> = AppResponseSuccess<T, M> | AppResponseFailure<M>;
+export type AppResponse<T> = AppResponseSuccess<T> | AppResponseFailure;
 
-export const SendResponse = <T, M>({statusCode, body}: AppResponse<T, M>): AppResponse<T, M> => {
+export const SendResponse = <T>({statusCode, body}: AppResponse<T>): AppResponse<T> => {
     const {success, message} = body;
 
     if (!success) {

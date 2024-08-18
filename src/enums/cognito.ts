@@ -1,25 +1,21 @@
-
-type CognitoCodeEntry = {
-    code: string;
-    content: string;
-};
+import {AppResponseMessage} from "./index";
 
 interface CognitoCode {
-    ALL_OKAY: CognitoCodeEntry;
-    USER_NOT_CONFIRMED: CognitoCodeEntry;
-    USER_NOT_FOUND: CognitoCodeEntry;
-    USER_REGISTRATION_SUCCESSFUL: CognitoCodeEntry;
-    USER_LOGIN_SUCCESSFUL: CognitoCodeEntry;
-    USER_ALREADY_EXISTS: CognitoCodeEntry;
-    VERIFICATION_CODE_SENT: CognitoCodeEntry;
-    USER_CONFIRMED_SUCCESSFULLY: CognitoCodeEntry;
-    INVALID_CONFIRMATION_CODE: CognitoCodeEntry;
-    INVALID_PARAMETERS: CognitoCodeEntry;
-    SMS_VERIFICATION_SUCCESSFUL: CognitoCodeEntry;
-    NOT_AUTHORIZED: CognitoCodeEntry;
-    INVALID_OTP: CognitoCodeEntry;
-    CONTACT_UPDATED_SUCCESSFULLY: CognitoCodeEntry;
-    INTERNAL_SERVER_ERROR: CognitoCodeEntry;
+    ALL_OKAY: AppResponseMessage;
+    USER_NOT_CONFIRMED: AppResponseMessage;
+    USER_NOT_FOUND: AppResponseMessage;
+    USER_REGISTRATION_SUCCESSFUL: AppResponseMessage;
+    USER_LOGIN_SUCCESSFUL: AppResponseMessage;
+    USER_ALREADY_EXISTS: AppResponseMessage;
+    VERIFICATION_CODE_SENT: AppResponseMessage;
+    USER_CONFIRMED_SUCCESSFULLY: AppResponseMessage;
+    INVALID_CONFIRMATION_CODE: AppResponseMessage;
+    INVALID_PARAMETERS: AppResponseMessage;
+    SMS_VERIFICATION_SUCCESSFUL: AppResponseMessage;
+    NOT_AUTHORIZED: AppResponseMessage;
+    INVALID_OTP: AppResponseMessage;
+    CONTACT_UPDATED_SUCCESSFULLY: AppResponseMessage;
+    INTERNAL_SERVER_ERROR: AppResponseMessage;
 }
 
 export const CognitoCodes: CognitoCode = {
