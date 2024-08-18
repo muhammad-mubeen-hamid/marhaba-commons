@@ -1,10 +1,11 @@
 {
   "name": "@muhammad-mubeen-hamid/marhaba-commons",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Types, utilities and commons for Marhaba app",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/muhammad-mubeen-hamid/marhaba-commons/issues"
   },
-  "homepage": "https://github.com/muhammad-mubeen-hamid/marhaba-commons#readme"
+  "homepage": "https://github.com/muhammad-mubeen-hamid/marhaba-commons#readme",
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
 }
