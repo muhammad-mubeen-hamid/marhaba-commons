@@ -33,6 +33,8 @@ jobs:
       - run: |
           echo "@muhammad-mubeen-hamid:registry=https://npm.pkg.github.com" >> .npmrc
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.MARHABA_GITHUB_TOKEN }}" >> .npmrc
+      - run: yarn build
+      - run: ls -R
       - run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.MARHABA_GITHUB_TOKEN}}
