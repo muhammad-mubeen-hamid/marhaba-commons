@@ -14,8 +14,8 @@ jobs:
         with:
           node-version: 20
       - run: yarn install
-
       - run: yarn build
+      - run: ls -R dist/
 
   publish-gpr:
     needs: build
@@ -30,7 +30,6 @@ jobs:
           node-version: 20
           registry-url: https://npm.pkg.github.com/
           scope: '@muhammad-mubeen-hamid'
-      - run: yarn install
       - run: |
           echo "@muhammad-mubeen-hamid:registry=https://npm.pkg.github.com" >> .npmrc
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.MARHABA_GITHUB_TOKEN }}" >> .npmrc
