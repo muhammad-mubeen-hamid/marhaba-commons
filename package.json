@@ -21,7 +21,8 @@
   },
   "homepage": "https://github.com/muhammad-mubeen-hamid/marhaba-commons#readme",
   "devDependencies": {
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "@aws-sdk/types": "^3.609.0"
   },
   "dependencies": {
     "aws-sdk": "^2.1675.0"
