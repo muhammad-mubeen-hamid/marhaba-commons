@@ -1,11 +1,11 @@
-import AWS from 'aws-sdk';
+import { SecretsManager } from '@aws-sdk/client-secrets-manager'
 
-const secretsManager = new AWS.SecretsManager();
+const secretsManager = new SecretsManager();
 export const getSecretFromSM = async (secretName: string) => {
     try {
-        const data = await secretsManager.getSecretValue({ SecretId: secretName }).promise();
+        const data = await secretsManager.getSecretValue({ SecretId: secretName });
+        console.log('getSecretFromSM:', data);
         if ('SecretString' in data) {
-            console.log('getSecretFromSM:', data);
             return JSON.parse(data.SecretString!);
         }
     } catch (err) {
