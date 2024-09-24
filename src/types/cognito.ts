@@ -20,7 +20,7 @@ export interface SignInResponse {
 
 // authorize sign in
 
-export interface AuthUserSignInRequest {
+export interface AuthSignInRequest {
     email: string;
     otp: string;
     session: string;
