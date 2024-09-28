@@ -4,6 +4,7 @@ interface ProfileCode {
     ALL_OKAY: AppResponseMessage;
     PROFILE_UPDATED: AppResponseMessage;
     IMAGE_UPLOADED: AppResponseMessage;
+    INVALID_PATH_PARAMETERS: AppResponseMessage;
     INTERNAL_SERVER_ERROR: AppResponseMessage;
 }
 
@@ -19,6 +20,10 @@ export const ProfileCodes: ProfileCode = {
     IMAGE_UPLOADED: {
         code: 'PC_02',
         content: 'Image uploaded successfully',
+    },
+    INVALID_PATH_PARAMETERS: {
+        code: 'PC_98',
+        content: 'Invalid path parameters',
     },
     INTERNAL_SERVER_ERROR: {
         code: 'PC_99',
