@@ -1,4 +1,4 @@
-import {AppResponseMessage} from "./index";
+import { AppResponseMessage } from './index';
 
 interface CognitoCode {
     ALL_OKAY: AppResponseMessage;
@@ -15,6 +15,8 @@ interface CognitoCode {
     NOT_AUTHORIZED: AppResponseMessage;
     INVALID_OTP: AppResponseMessage;
     CONTACT_UPDATED_SUCCESSFULLY: AppResponseMessage;
+    NO_TOKEN: AppResponseMessage;
+    INVALID_TOKEN: AppResponseMessage;
     INTERNAL_SERVER_ERROR: AppResponseMessage;
 }
 
@@ -57,7 +59,7 @@ export const CognitoCodes: CognitoCode = {
     },
     INVALID_PARAMETERS: {
         code: 'CC_08',
-        content: 'Invalid parameters'
+        content: 'Invalid parameters',
     },
     SMS_VERIFICATION_SUCCESSFUL: {
         code: 'CC_10',
@@ -75,10 +77,18 @@ export const CognitoCodes: CognitoCode = {
         code: 'CC_13',
         content: 'Contact updated successfully',
     },
+    NO_TOKEN: {
+        code: 'CC_14',
+        content: 'No token provided',
+    },
+    INVALID_TOKEN: {
+        code: 'CC_15',
+        content: 'Invalid token',
+    },
     INTERNAL_SERVER_ERROR: {
         code: 'CC_99',
         content: 'Internal server error',
-    }
+    },
 };
 
 export type CognitoCodesT = typeof CognitoCodes[keyof typeof CognitoCodes];
