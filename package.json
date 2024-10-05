@@ -1,6 +1,6 @@
 {
   "name": "@muhammad-mubeen-hamid/marhaba-commons",
-  "version": "1.0.6-m",
+  "version": "1.0.6-n",
   "description": "Types, utilities and commons for Marhaba app",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
