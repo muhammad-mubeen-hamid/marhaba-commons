@@ -2,7 +2,7 @@
   "compilerOptions": {
     "module": "commonjs",
     // or "esnext"
-    "target": "es5",
+    "target": "es2019",
     // or "esnext" depending on your environment
     "moduleResolution": "node",
     "declaration": true,
