@@ -17,14 +17,18 @@ export const getSecretFromSM = async (secretName: string) => {
     }
 };
 
-export const getCognitoPublicKeys = async (jwksUrl: string): Promise<ParsedJWK[]> => {
+export const getCognitoPublicKeys = (jwksUrl: string): ParsedJWK[] | null => {
     try {
+        let data: ParsedJWK[] | null = null;
         console.log('Fetching JWKS keys from Cognito');
-        const { data } = await axios.get<ParsedJWKsResponse>(jwksUrl);
-        console.log('Fetched keys:', data.keys);
-        return data.keys;
+        axios.get<ParsedJWKsResponse>(jwksUrl).then((response) => {
+            console.log('Fetched keys:', response.data.keys);
+            data = response.data.keys;
+            return data;
+        });
+        return null;
     } catch (err) {
-        throw new Error(`Unable to retrieve public keys from Cognito: ${err}`);
+        return null;
     }
 };
 
