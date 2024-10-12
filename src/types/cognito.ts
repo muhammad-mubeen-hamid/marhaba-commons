@@ -77,6 +77,7 @@ export interface AuthSignInResponse {
     accessToken: string;
     refreshToken: string;
     idToken: string;
+    userSubId: string;
 }
 
 // sign up
