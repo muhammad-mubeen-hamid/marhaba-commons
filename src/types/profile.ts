@@ -1,14 +1,11 @@
 export interface Profile {
-  id: string;
-  email?: string;
-  phone?: string;
-  first_name?: string;
-  last_name?: string;
-  dob?: string;
-  created_at: string;
+    email: string;          // User's email address
+    contactNumber: string;  // User's contact number
+    createdAt: string;      // ISO 8601 timestamp of profile creation
 }
 
+
 export interface UpdateProfileRequest {
-  profile: Profile;
-  modified_at: string;
+    profile: Profile;
+    modifiedAt: string;     // ISO 8601 timestamp of the last profile update
 }
