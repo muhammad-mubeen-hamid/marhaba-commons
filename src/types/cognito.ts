@@ -47,6 +47,8 @@ export interface CognitoJwtPayload extends JwtPayload {
 
 export interface UserResponse {
     username: string;
+    email: string;
+    phoneNumber: string;
     creationDate: Date;
     status: string;
     isEnable: boolean;
