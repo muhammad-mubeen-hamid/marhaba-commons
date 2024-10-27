@@ -1,4 +1,4 @@
-import {AppResponseMessage} from "../enums";
+import { AppResponseMessage } from '../enums';
 
 export interface AppResponseSuccessBody<T> {
     /**
@@ -34,32 +34,32 @@ export interface AppResponseFailureBody {
 
 interface AppResponseFailure {
     statusCode: number;
-    body: AppResponseFailureBody
+    body: AppResponseFailureBody;
 }
 
 export type AppResponse<T> = AppResponseSuccess<T> | AppResponseFailure;
 
-export const SendResponse = <T>({statusCode, body}: AppResponse<T>): AppResponse<T> => {
-    const {success, message} = body;
+export const SendResponse = <T>({ statusCode, body }: AppResponse<T>): AppResponse<T> => {
+    const { success, message } = body;
 
     if (!success) {
         return {
             statusCode: statusCode,
             body: {
-                success,
-                message
-            }
+                success: false,
+                message,
+            },
         };
     }
 
-    const {data} = body;
+    const { data } = body;
 
     return {
         statusCode: statusCode,
         body: {
-            success,
+            success: true,
             message,
-            data
-        }
+            data,
+        },
     };
 };
