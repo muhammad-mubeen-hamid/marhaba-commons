@@ -99,3 +99,7 @@ export interface SignUpResponse {
     phoneNumber: string;
     userConfirmed: boolean;
 }
+
+export interface RequestOTPRequest {
+    email: string;
+}
