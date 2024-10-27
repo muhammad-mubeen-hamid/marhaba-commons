@@ -44,8 +44,11 @@ export interface CognitoJwtPayload extends JwtPayload {
     ['cognito:username']: string;
 }
 
+export interface GetUserRequest {
+    email: string;
+}
 
-export interface UserResponse {
+export interface GetUserResponse {
     username: string;
     email: string;
     phoneNumber: string;
