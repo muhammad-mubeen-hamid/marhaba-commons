@@ -18,7 +18,9 @@ interface CognitoCode {
     NO_TOKEN: AppResponseMessage;
     INVALID_TOKEN: AppResponseMessage;
     NO_PATH_PARAMS: AppResponseMessage;
+    INVALID_PATH_PARAMS: AppResponseMessage;
     NO_BODY: AppResponseMessage;
+    INVALID_BODY: AppResponseMessage;
     INTERNAL_SERVER_ERROR: AppResponseMessage;
 }
 
@@ -88,12 +90,20 @@ export const CognitoCodes: CognitoCode = {
         content: 'Invalid token',
     },
     NO_PATH_PARAMS: {
-        code: 'CC_97',
+        code: 'CC_95',
         content: 'Path parameters are missing',
     },
+    INVALID_PATH_PARAMS: {
+        code: 'CC_96',
+        content: 'Invalid path parameters',
+    },
     NO_BODY: {
-        code: 'CC_98',
+        code: 'CC_97',
         content: 'Body is missing',
+    },
+    INVALID_BODY: {
+        code: 'CC_98',
+        content: 'Invalid body',
     },
     INTERNAL_SERVER_ERROR: {
         code: 'CC_99',
