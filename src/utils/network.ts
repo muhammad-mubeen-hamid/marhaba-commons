@@ -15,11 +15,10 @@ export interface AppResponseSuccessBody<T> {
     data: T;
 }
 
-interface AppResponseSuccess<T> {
+export interface AppResponseSuccess<T> {
     statusCode: number;
     body: AppResponseSuccessBody<T>;
 }
-
 
 export interface AppResponseFailureBody {
     /**
@@ -32,7 +31,7 @@ export interface AppResponseFailureBody {
     message: AppResponseMessage;
 }
 
-interface AppResponseFailure {
+export interface AppResponseFailure {
     statusCode: number;
     body: AppResponseFailureBody;
 }

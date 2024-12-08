@@ -12,5 +12,5 @@ export interface Profile {
 }
 
 export interface GetProfileResponse {
-    profile: Profile
+    profile: Profile;
 }
