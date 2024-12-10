@@ -3,7 +3,7 @@ import { AppResponseMessage } from '../enums';
 /**
  * Represents the structure of a successful response body.
  */
-export interface AppResponseSuccessBody<T> {
+interface AppResponseSuccessBody<T> {
     success: true; // Explicit success property
     message: AppResponseMessage;
     data: T;
@@ -12,7 +12,7 @@ export interface AppResponseSuccessBody<T> {
 /**
  * Represents a successful response.
  */
-export interface AppResponseSuccess<T> {
+interface AppResponseSuccess<T> {
     statusCode: number;
     body: AppResponseSuccessBody<T>;
 }
@@ -20,7 +20,7 @@ export interface AppResponseSuccess<T> {
 /**
  * Represents the structure of a failure response body.
  */
-export interface AppResponseFailureBody {
+interface AppResponseFailureBody {
     success: false; // Explicit success property
     message: AppResponseMessage;
 }
@@ -28,7 +28,7 @@ export interface AppResponseFailureBody {
 /**
  * Represents a failure response.
  */
-export interface AppResponseFailure {
+interface AppResponseFailure {
     statusCode: number;
     body: AppResponseFailureBody;
 }
@@ -36,7 +36,13 @@ export interface AppResponseFailure {
 /**
  * Represents the unified structure of an application response.
  */
-export type AppResponse<T> = AppResponseSuccess<T> | AppResponseFailure;
+export interface AppResponse<T> {
+    statusCode: number;
+    success: boolean;
+    message: AppResponseMessage;
+    data?: T; // Optional for failure responses
+}
+// export type AppResponse<T> = AppResponseSuccess<T> | AppResponseFailure;
 
 /**
  * Constructs a unified application response based on the presence of data.
@@ -51,19 +57,15 @@ export const SendResponse = <T>(params: {
     if (data !== undefined) {
         return {
             statusCode,
-            body: {
-                success: true, // Explicit success
-                message,
-                data,
-            },
+            success: true, // Explicit success
+            message,
+            data,
         };
     }
 
     return {
         statusCode,
-        body: {
-            success: false, // Explicit success
-            message,
-        },
+        success: false,
+        message,
     };
 };
