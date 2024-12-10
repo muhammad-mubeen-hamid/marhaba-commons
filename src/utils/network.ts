@@ -1,64 +1,69 @@
 import { AppResponseMessage } from '../enums';
 
+/**
+ * Represents the structure of a successful response body.
+ */
 export interface AppResponseSuccessBody<T> {
-    /**
-     * Indicates that the request was fulfilled, as intended.
-     */
-    success: true;
-    /**
-     * A message to describe the result of the request.
-     */
+    success: true; // Explicit success property
     message: AppResponseMessage;
-    /**
-     * The data returned from the request.
-     */
     data: T;
 }
 
+/**
+ * Represents a successful response.
+ */
 export interface AppResponseSuccess<T> {
     statusCode: number;
     body: AppResponseSuccessBody<T>;
 }
 
+/**
+ * Represents the structure of a failure response body.
+ */
 export interface AppResponseFailureBody {
-    /**
-     * Indicates that the request was not fulfilled, as intended.
-     */
-    success: false;
-    /**
-     * A message to describe the result of the request.
-     */
+    success: false; // Explicit success property
     message: AppResponseMessage;
 }
 
+/**
+ * Represents a failure response.
+ */
 export interface AppResponseFailure {
     statusCode: number;
     body: AppResponseFailureBody;
 }
 
+/**
+ * Represents the unified structure of an application response.
+ */
 export type AppResponse<T> = AppResponseSuccess<T> | AppResponseFailure;
 
-export const SendResponse = <T>({ statusCode, body }: AppResponse<T>): AppResponse<T> => {
-    const { success, message } = body;
+/**
+ * Constructs a unified application response based on the presence of data.
+ */
+export const SendResponse = <T>(params: {
+    statusCode: number;
+    message: AppResponseMessage;
+    data?: T;
+}): AppResponse<T> => {
+    const { statusCode, message, data } = params;
 
-    if (!success) {
+    if (data !== undefined) {
         return {
-            statusCode: statusCode,
+            statusCode,
             body: {
-                success: false,
+                success: true, // Explicit success
                 message,
+                data,
             },
         };
     }
 
-    const { data } = body;
-
     return {
-        statusCode: statusCode,
+        statusCode,
         body: {
-            success: true,
+            success: false, // Explicit success
             message,
-            data,
         },
     };
 };
