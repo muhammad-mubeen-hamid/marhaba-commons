@@ -36,12 +36,10 @@ interface AppResponseFailure {
 /**
  * Represents the unified structure of an application response.
  */
-export interface AppResponse<T> {
-    statusCode: number;
-    success: boolean;
-    message: AppResponseMessage;
-    data?: T; // Optional for failure responses
-}
+export type AppResponse<T> =
+    | { statusCode: number; success: true; message: AppResponseMessage; data: T }
+    | { statusCode: number; success: false; message: AppResponseMessage; data?: undefined };
+
 // export type AppResponse<T> = AppResponseSuccess<T> | AppResponseFailure;
 
 /**
@@ -57,7 +55,7 @@ export const SendResponse = <T>(params: {
     if (data !== undefined) {
         return {
             statusCode,
-            success: true, // Explicit success
+            success: true,
             message,
             data,
         };
@@ -67,5 +65,6 @@ export const SendResponse = <T>(params: {
         statusCode,
         success: false,
         message,
-    };
+    } as AppResponse<T>;
 };
+
