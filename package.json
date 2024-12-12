@@ -1,6 +1,6 @@
 {
   "name": "@muhammad-mubeen-hamid/marhaba-commons",
-  "version": "1.0.7-a-i",
+  "version": "1.0.7-a-j",
   "description": "Types, utilities and commons for Marhaba app",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -21,15 +21,16 @@
   },
   "homepage": "https://github.com/muhammad-mubeen-hamid/marhaba-commons#readme",
   "devDependencies": {
-    "@types/node": "^20.14.8",
-    "typescript": "^5.5.4",
     "@aws-sdk/client-secrets-manager": "^3.649.0",
+    "@types/aws-lambda": "^8.10.146",
+    "@types/jsonwebtoken": "^9.0.6",
     "@types/jwk-to-pem": "^2.0.3",
-    "@types/jsonwebtoken": "^9.0.6"
+    "@types/node": "^20.14.8",
+    "typescript": "^5.5.4"
   },
   "dependencies": {
     "axios": "^1.7.7",
-    "jwk-to-pem": "^2.0.6",
-    "jsonwebtoken": "^9.0.2"
+    "jsonwebtoken": "^9.0.2",
+    "jwk-to-pem": "^2.0.6"
   }
 }

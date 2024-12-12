@@ -1,4 +1,5 @@
 import { AppResponseMessage } from '../enums';
+import {APIGatewayProxyResult} from "aws-lambda";
 
 /**
  * Represents the unified structure of an application response.
@@ -7,12 +8,10 @@ export type AppResponse<T> =
     | { statusCode: number; success: true; message: AppResponseMessage; data: T }
     | { statusCode: number; success: false; message: AppResponseMessage; data?: undefined };
 
-// export type AppResponse<T> = AppResponseSuccess<T> | AppResponseFailure;
-
 /**
  * Constructs a unified application response based on the presence of data.
  */
-export const SendResponse = <T>(params: {
+export const BuildAppResponse = <T>(params: {
     statusCode: number;
     message: AppResponseMessage;
     data?: T;
@@ -35,3 +34,12 @@ export const SendResponse = <T>(params: {
     } as AppResponse<T>;
 };
 
+/**
+ * Adapts an AppResponse, returned by BuildResponse(), to an APIGatewayProxyResult.
+ */
+export const LambdaResponse = <T>(appResponse: AppResponse<T>): APIGatewayProxyResult => {
+    return {
+        statusCode: appResponse.statusCode,
+        body: JSON.stringify(appResponse),
+    };
+};
