@@ -82,7 +82,7 @@ export interface AuthSignInResponse {
     accessToken: string;
     refreshToken: string;
     idToken: string;
-    userSubId: string;
+    username: string;
 }
 
 // sign up
@@ -94,7 +94,7 @@ export interface SignUpRequest {
 }
 
 export interface SignUpResponse {
-    userSub: string;
+    username: string;
     email: string;
     phoneNumber: string;
     userConfirmed: boolean;
