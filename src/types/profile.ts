@@ -8,9 +8,9 @@ export interface Profile {
     dateOfBirth?: string;   // User's date of birth (format: YYYY-MM-DD)
     countryOfOrigin?: string;  // User's country of origin
     spokenLanguages?: string[]; // Array of languages spoken by the user
+    modifiedAt: string;    // ISO 8601 timestamp of last modification
 }
 
 export interface GetProfileResponse {
     profile: Profile;
-    modifiedAt: string;    // ISO 8601 timestamp of last modification
 }
