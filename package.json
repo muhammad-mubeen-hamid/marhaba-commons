@@ -1,6 +1,6 @@
 {
   "name": "@muhammad-mubeen-hamid/marhaba-commons",
-  "version": "1.0.7-a-k",
+  "version": "1.0.7-a-l",
   "description": "Types, utilities and commons for Marhaba app",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/muhammad-mubeen-hamid/marhaba-commons#readme",
   "devDependencies": {
+    "@aws-sdk/client-cognito-identity-provider": "^3.363.0",
     "@aws-sdk/client-secrets-manager": "^3.649.0",
     "@types/aws-lambda": "^8.10.146",
     "@types/jsonwebtoken": "^9.0.6",

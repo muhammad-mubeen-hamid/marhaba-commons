@@ -1,4 +1,5 @@
 import { JwtPayload } from 'jsonwebtoken';
+import {UserStatusType} from "@aws-sdk/client-cognito-identity-provider";
 
 export interface ParsedJWT {
     sub: string;
@@ -53,7 +54,7 @@ export interface GetUserResponse {
     email: string;
     phoneNumber: string;
     creationDate: Date;
-    status: string;
+    status: UserStatusType;
     isEnable: boolean;
     isEmailVerified: boolean;
     isPhoneVerified: boolean;
