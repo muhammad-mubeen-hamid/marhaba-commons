@@ -64,6 +64,7 @@ export interface GetUserResponse {
 }
 
 export interface UpdateUserMfaRequest {
+    accessKey: string,
     email: string;
     mfaType: 'SMS' | 'EMAIL'
 }
