@@ -63,6 +63,11 @@ export interface GetUserResponse {
     preferredMfaSetting: string;
 }
 
+export interface UpdateUserMfaRequest {
+    email: string;
+    mfaType: 'SMS' | 'EMAIL'
+}
+
 // sign in
 
 export interface SignInRequest {
