@@ -58,6 +58,9 @@ export interface GetUserResponse {
     isEnable: boolean;
     isEmailVerified: boolean;
     isPhoneVerified: boolean;
+    userLastModifiedDate: Date;
+    userMFASettingList: string[];
+    preferredMfaSetting: string;
 }
 
 // sign in
