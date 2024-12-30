@@ -111,4 +111,10 @@ export const CognitoCodes: CognitoCode = {
     },
 };
 
+export enum MFAType {
+    SMS = "SMS",
+    EMAIL = "EMAIL"
+}
+
+export type MFATypeT = typeof MFAType
 export type CognitoCodesT = typeof CognitoCodes[keyof typeof CognitoCodes];

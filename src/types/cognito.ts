@@ -1,5 +1,6 @@
 import { JwtPayload } from 'jsonwebtoken';
 import {UserStatusType} from "@aws-sdk/client-cognito-identity-provider";
+import {MFATypeT} from "../enums";
 
 export interface ParsedJWT {
     sub: string;
@@ -45,6 +46,13 @@ export interface CognitoJwtPayload extends JwtPayload {
     ['cognito:username']: string;
 }
 
+// lambda requests
+export interface UpdateMfaLambdaRequest  {
+    email: string;
+    accessKey: string;
+    mfaType: MFATypeT;
+}
+
 export interface GetUserRequest {
     email: string;
 }
@@ -66,7 +74,7 @@ export interface GetUserResponse {
 export interface UpdateUserMfaRequest {
     accessKey: string,
     email: string;
-    mfaType: 'SMS' | 'EMAIL'
+    mfaType: MFATypeT;
 }
 
 // sign in
