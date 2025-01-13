@@ -5,8 +5,8 @@ import {APIGatewayProxyResult} from "aws-lambda";
  * Represents the unified structure of an application response.
  */
 export type AppResponse<T> =
-    | { statusCode: number; success: true; message: AppResponseMessage; data: T }
-    | { statusCode: number; success: false; message: AppResponseMessage; data?: undefined };
+    | { statusCode: number; message: AppResponseMessage; data: T }
+    | { statusCode: number; message: AppResponseMessage; data?: undefined };
 
 /**
  * Constructs a unified application response based on the presence of data.
@@ -21,7 +21,6 @@ export const BuildAppResponse = <T>(params: {
     if (data !== undefined) {
         return {
             statusCode,
-            success: true,
             message,
             data,
         };
@@ -29,7 +28,6 @@ export const BuildAppResponse = <T>(params: {
 
     return {
         statusCode,
-        success: false,
         message,
     } as AppResponse<T>;
 };
