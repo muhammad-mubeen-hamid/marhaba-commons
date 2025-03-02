@@ -121,3 +121,8 @@ export interface SignUpResponse {
 export interface RequestOTPRequest {
     email: string;
 }
+
+// contact number verification
+export interface ConfirmUserPhoneNumberRequest {
+    otp: string;
+}
