@@ -119,10 +119,10 @@ export interface SignUpResponse {
 }
 
 /**
- * UserConfirmationOTPRequest interface represents the structure of the request
+ * UserConfirmationEmailOTPRequest interface represents the structure of the request
  * to obtain a one-time password (OTP) for a user confirmation during sign up.
  */
-export interface UserConfirmationOTPRequest {
+export interface UserConfirmationEmailOTPRequest {
     /**
      * The cognito username of the user.
      */
