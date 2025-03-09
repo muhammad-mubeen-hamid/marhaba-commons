@@ -118,8 +118,15 @@ export interface SignUpResponse {
     userConfirmed: boolean;
 }
 
-export interface RequestOTPRequest {
-    email: string;
+/**
+ * UserConfirmationOTPRequest interface represents the structure of the request
+ * to obtain a one-time password (OTP) for a user confirmation during sign up.
+ */
+export interface UserConfirmationOTPRequest {
+    /**
+     * The cognito username of the user.
+     */
+    username: string;
 }
 
 // contact number verification
