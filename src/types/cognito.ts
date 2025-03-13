@@ -131,5 +131,13 @@ export interface UserConfirmationEmailOTPRequest {
 
 // contact number verification
 export interface ConfirmUserPhoneNumberRequest {
+    /**
+     * The cognito username of the user.
+     */
     otp: string;
+    /**
+     * A string that represents the access token used for authentication and authorization purposes.
+     * Typically used to validate API requests or access protected resources.
+     */
+    accessToken: string;
 }
