@@ -17,6 +17,7 @@ interface CognitoCode {
     CONTACT_UPDATED_SUCCESSFULLY: AppResponseMessage;
     NO_TOKEN: AppResponseMessage;
     INVALID_TOKEN: AppResponseMessage;
+    ATTRIBUTE_CONFIRMED: AppResponseMessage;
     NO_PATH_PARAMS: AppResponseMessage;
     INVALID_PATH_PARAMS: AppResponseMessage;
     NO_BODY: AppResponseMessage;
@@ -62,7 +63,7 @@ export const CognitoCodes: CognitoCode = {
         content: 'Invalid confirmation code',
     },
     INVALID_PARAMETERS: {
-        code: 'CC_08',
+        code: 'CC_09',
         content: 'Invalid parameters',
     },
     SMS_VERIFICATION_SUCCESSFUL: {
@@ -88,6 +89,10 @@ export const CognitoCodes: CognitoCode = {
     INVALID_TOKEN: {
         code: 'CC_15',
         content: 'Invalid token',
+    },
+    ATTRIBUTE_CONFIRMED: {
+        code: 'CC_16',
+        content: 'Attribute confirmed',
     },
     NO_PATH_PARAMS: {
         code: 'CC_95',
