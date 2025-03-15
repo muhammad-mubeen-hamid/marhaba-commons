@@ -18,6 +18,8 @@ interface CognitoCode {
     NO_TOKEN: AppResponseMessage;
     INVALID_TOKEN: AppResponseMessage;
     ATTRIBUTE_CONFIRMED: AppResponseMessage;
+    EXPIRED_OTP: AppResponseMessage;
+    // defaults
     NO_PATH_PARAMS: AppResponseMessage;
     INVALID_PATH_PARAMS: AppResponseMessage;
     NO_BODY: AppResponseMessage;
@@ -94,6 +96,11 @@ export const CognitoCodes: CognitoCode = {
         code: 'CC_16',
         content: 'Attribute confirmed',
     },
+    EXPIRED_OTP: {
+        code: 'CC_17',
+        content: 'Expired OTP',
+    },
+    // defaults
     NO_PATH_PARAMS: {
         code: 'CC_95',
         content: 'Path parameters are missing',
