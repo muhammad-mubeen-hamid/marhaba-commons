@@ -38,11 +38,6 @@ export const BuildAppResponse = <T>(params: {
 export const LambdaResponse = <T>(appResponse: AppResponse<T>): APIGatewayProxyResult => {
     return {
         statusCode: appResponse.statusCode,
-        body: JSON.stringify(appResponse),
-        headers: {
-            "Access-Control-Allow-Origin": "*", // Or a specific origin
-            "Access-Control-Allow-Headers": "Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token",
-            "Access-Control-Allow-Methods": "GET,POST,OPTIONS"
-        }
+        body: JSON.stringify(appResponse)
     };
 };
