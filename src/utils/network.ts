@@ -39,5 +39,10 @@ export const LambdaResponse = <T>(appResponse: AppResponse<T>): APIGatewayProxyR
     return {
         statusCode: appResponse.statusCode,
         body: JSON.stringify(appResponse),
+        headers: {
+            "Access-Control-Allow-Origin": "*", // Or a specific origin
+            "Access-Control-Allow-Headers": "Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token",
+            "Access-Control-Allow-Methods": "GET,POST,OPTIONS"
+        }
     };
 };
